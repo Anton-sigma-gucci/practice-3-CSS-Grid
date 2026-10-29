@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+/* LOCAL HEADING FONT (fonts/ folder) */
+@font-face {
+    font-family: 'Trivium Heading';
+    src: url('fonts/Lora-Variable.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 :root {
     --bg: #09090b;
@@ -11,6 +20,10 @@
     --line: #29272d;
     --glow: #e43b4324;
     --content-width: 1440px;
+
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-ui: 'Montserrat', 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    --font-heading: 'Trivium Heading', Georgia, 'Times New Roman', serif;
 }
 
 * {
@@ -30,8 +43,8 @@ body {
         radial-gradient(ellipse at 50% -20%, #242026 0%, transparent 55%),
         var(--bg);
     color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
+    font-family: var(--font-body);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -72,7 +85,7 @@ img {
 
 .logo {
     flex-shrink: 0;
-    font: 900 29px 'Barlow Condensed', sans-serif;
+    font: 700 26px/1.2 var(--font-heading);
     letter-spacing: 3px;
 }
 
@@ -213,16 +226,16 @@ img {
 
 h1,
 h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    line-height: .9;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.1;
     text-transform: uppercase;
 }
 
 h1 {
     width: 100%;
     margin: 14px 0 22px;
-    font-size: clamp(56px, 8.2vw, 118px);
+    font-size: clamp(40px, 6.4vw, 92px);
     letter-spacing: -1.5px;
     white-space: nowrap;
     overflow: visible;
@@ -329,7 +342,7 @@ h1 span {
     right: 0;
     bottom: -65px;
     color: #ffffff04;
-    font: 900 clamp(150px, 22vw, 280px)/.8 'Barlow Condensed', sans-serif;
+    font: 700 clamp(150px, 22vw, 280px)/.8 var(--font-heading);
     pointer-events: none;
     user-select: none;
 }
@@ -1302,4 +1315,88 @@ input[type="range"]:focus-visible {
     .track-name {
         font-size: 11px;
     }
+}
+
+
+/* ==========================================================
+   TYPOGRAPHY (практична робота 3.1)
+   ========================================================== */
+
+/* кнопки та поля успадковують шрифт сторінки */
+button,
+input {
+    font-family: inherit;
+}
+
+/* заголовки H1–H3 — локальний шрифт */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+h3 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    overflow-wrap: anywhere;
+}
+
+/* основний текст: line-height 1.5–1.6 */
+body {
+    line-height: 1.6;
+}
+
+.hero-description,
+.text-content p,
+.sources p,
+.credit-row,
+.player-status,
+.source-note {
+    line-height: 1.6;
+}
+
+.text-content p + p {
+    margin-top: 1em;
+}
+
+/* допоміжні елементи: UPPERCASE + letter-spacing 0.5–1.5px */
+.navigation a,
+.header-year,
+.primary-button,
+.eyebrow,
+.track-count,
+.cover-caption,
+.fact-label,
+.player-artist,
+.album-meta,
+.site-footer a:not(.logo) {
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navigation a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+.primary-button {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.eyebrow,
+.track-count,
+.cover-caption,
+.fact-label,
+.player-artist,
+.album-meta {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.logo {
+    letter-spacing: 1.5px;
 }
